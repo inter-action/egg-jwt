@@ -1,0 +1,9 @@
+logs/
+npm-debug.log
+node_modules/
+coverage/
+test/fixtures/**/run
+dump.rdb
+app/**/*.js
+config/**/*.js
+app.js
