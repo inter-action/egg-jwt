@@ -1,5 +1,5 @@
 {
-  "name": "@ali/egg-jwt",
+  "name": "@ali/tegg-jwt",
   "version": "1.0.0",
   "description": "a eggjs jwt plugin",
   "main": "index.js",
@@ -25,5 +25,8 @@
   },
   "eggPlugin": {
     "name": "jwt"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npm.alibaba-inc.com"
   }
 }
