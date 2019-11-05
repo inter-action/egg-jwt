@@ -1,5 +1,5 @@
 {
-  "name": "@ali/tegg-jwt",
+  "name": "@ali/egg-jwt",
   "version": "1.0.0",
   "description": "a eggjs jwt plugin",
   "main": "index.js",
