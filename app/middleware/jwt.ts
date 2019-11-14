@@ -26,7 +26,7 @@ module.exports = (config: Config, app: Application) => {
 
   return async function (ctx: Context, next) {
     let authHeader = config.header.toLocaleLowerCase()
-    let token = ctx.headers[authHeader];
+    let token = ctx.headers[authHeader] || bearerToken(ctx.query[authHeader]);
     const loginRequired = ()=>{
       ctx.status = 401
     }
@@ -63,10 +63,14 @@ module.exports = (config: Config, app: Application) => {
 
     let payload = ctx[contextKey!]
     token = await ctx.jwtSign(payload, payload.exp ? undefined : {expiresIn: config.expiresIn})
-    ctx.response.set(config.header, `Bearer ${token}`)
+    ctx.response.set(config.header, bearerToken(token))
   };
 };
 
+
+function bearerToken(token){
+  return `Bearer ${token}`
+}
 
 function extendContext(ctx, opts: Config) {
   const {contextKey, key} = opts;
